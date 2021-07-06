@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "json",
+      title: "Today News",
       home: Home(),
       // routes: {
       //   NewsPage.News: (_) => NewsPage(),

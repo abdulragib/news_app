@@ -5,7 +5,6 @@ import "main.dart";
 
 
 class Home extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
     return Center(
