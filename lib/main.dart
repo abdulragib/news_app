@@ -1,7 +1,13 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import "Home.dart";
+import "NewsPage.dart";
 
-void main() {
+var data;
+List item = data['articles'];
+void main() async {
+  data = await getNews();
   runApp(
     MyApp(),
   );
@@ -14,34 +20,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "json",
       home: Home(),
-      // ElevatedButton(child: Text("click"),
-      // onPressed: getNews,)
+      routes: {
+        NewsPage.News: (_) => NewsPage(),
+      },
     );
   }
 }
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  void getNews() async {
-    String url =
-        "https://newsapi.org/v2/everything?q=apple&from=2021-07-03&to=2021-07-03&sortBy=popularity&apiKey=f88eb92f431a4ec9aedf81b26234cf79";
-    http.Response response = await http.get(Uri.parse(url));
-    print(response.statusCode);
-    print(response.body);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("hello"),
-        ),
-        body: Center(
-          child: ElevatedButton(child: Text("click"), onPressed: getNews),
-        ),
-      ),
-    );
-  }
+Future getNews() async {
+  String url =
+      "https://newsapi.org/v2/everything?q=apple&from=2021-07-03&to=2021-07-03&sortBy=popularity&apiKey=f88eb92f431a4ec9aedf81b26234cf79";
+  http.Response response = await http.get(Uri.parse(url));
+  return json.decode(response.body);
 }
