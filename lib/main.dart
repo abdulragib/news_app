@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "json",
       home: Home(),
-      routes: {
-        NewsPage.News: (_) => NewsPage(),
-      },
+      // routes: {
+      //   NewsPage.News: (_) => NewsPage(),
+      // },
     );
   }
 }

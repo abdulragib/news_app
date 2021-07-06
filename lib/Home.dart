@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'NewsPage.dart';
 import "main.dart";
 
-var index;
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
 
+
+class Home extends StatelessWidget {
+ 
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
             itemCount: item.length,
             itemBuilder: (BuildContext context, int position) {
               if (position.isOdd) return new Divider();
-              index = position ~/ 2;
+              int index = position ~/ 2;
               return ListTile(
                 title: new Text(
                   "${item[index]['title']}",
@@ -32,10 +32,10 @@ class Home extends StatelessWidget {
                   child: Text("${index + 1}"),
                 ),
                 onTap: () {
-               Navigator.pushReplacementNamed(
-                  context, NewsPage.News,
-                 );
-               },
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => NewsPage(index),),
+                  );
+                },
               );
             },
           ),
