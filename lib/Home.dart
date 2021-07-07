@@ -10,7 +10,13 @@ class Home extends StatelessWidget {
     return Center(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Today News"),
+          title: Text("Today News",
+          style: TextStyle(
+            fontSize:22, 
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+          centerTitle: true,
         ),
         body: Center(
           child: ListView.builder(
@@ -18,12 +24,13 @@ class Home extends StatelessWidget {
             itemBuilder: (BuildContext context, int position) {
               if (position.isOdd) return new Divider();
               int index = position ~/ 2;
+              
               return ListTile(
                 title: new Text(
                   "${item[index]['title']}",
                   style: new TextStyle(
                       fontSize: 15.5,
-                      color: Colors.orange,
+                      color: Colors.blueAccent,
                       fontWeight: FontWeight.w500),
                 ),
                 subtitle: new Text("${item[index]['author']}"),

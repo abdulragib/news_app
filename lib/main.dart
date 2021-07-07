@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import "Home.dart";
-import "NewsPage.dart";
 
 var data;
 List item = data['articles'];
@@ -18,11 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Today News",
       home: Home(),
-      // routes: {
-      //   NewsPage.News: (_) => NewsPage(),
-      // },
+      theme: new ThemeData(primarySwatch: Colors.green),
     );
   }
 }
