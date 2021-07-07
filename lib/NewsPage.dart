@@ -29,21 +29,6 @@ class NewsPage extends StatelessWidget {
                height: 10,
              ),
 
-
-             Container(
-            padding: EdgeInsets.only(left: 5, right: 5),
-               child: Text("Description: ${item[index]['description']}",
-               style: TextStyle(
-                 fontSize: 17,
-                 fontWeight: FontWeight.w500,
-                 fontFamily: 'Verdana',
-               ),),
-             ),
-
-             SizedBox(
-               height: 20,
-             ),
-
             Container(
                padding: EdgeInsets.only(left: 5, right: 5),
              child: Text("News: ${item[index]['content']}",
